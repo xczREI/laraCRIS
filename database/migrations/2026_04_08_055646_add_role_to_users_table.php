@@ -9,27 +9,20 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-        public function up(): void
+    public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            // Add a role column, default to staff
-            $table->enum('role', ['admin', 'staff', 'employee'])->default('staff')->after('email');
+            $table->string('role')->default('user')->after('email');
         });
     }
 
-    public function down(): void
-    {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role');
-        });
-    }
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('role');
         });
     }
 };
