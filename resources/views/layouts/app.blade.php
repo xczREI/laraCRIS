@@ -6,6 +6,8 @@
     <title>laraCRIS - Local Civil Registry</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    @stack('styles')
 </head>
 <body class="bg-gray-100 font-sans text-gray-800 antialiased overflow-hidden">
 
