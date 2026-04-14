@@ -5,7 +5,6 @@
 @endpush
 
 @section('content')
-
 <div class="w-full py-6">
     <div class="mb-4 flex gap-2 max-w-[960px] mx-auto">
         <button type="button" id="p1" class="btn-outline-info active" onclick="showP('page1')">Page 1</button>
@@ -728,3 +727,5 @@
     }
 </script>
 @endsection
+
+}s

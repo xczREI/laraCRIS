@@ -1,1 +1,53 @@
 @import 'tailwindcss';
+
+.ctf-birth-container {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+.ctf-birth-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #22c55e;
+}
+
+.ctf-birth-table td {
+    border: 1px solid #22c55e;
+    padding: 4px;
+    vertical-align: top;
+}
+
+.ctf-birth-table input {
+    width: 100%;
+    border: none !important;
+    border-bottom: 1px solid #22c55e !important;
+    font-size: 11px !important;
+    text-transform: uppercase;
+    text-align: center;
+    background: transparent;
+}
+
+.ctf-birth-table input:focus {
+    outline: none;
+    background-color: #f0fdf4;
+}
+
+.ctf-birth-table h6 {
+    font-size: 10px !important;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.ctf-label-green {
+    color: #16a34a;
+    font-size: 9px;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #f0fdf4;
+}
