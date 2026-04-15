@@ -60,3 +60,50 @@
 #selected-text { opacity: 0.8; font-family: Arial, sans-serif; font-size: 14px; color: black; padding: 2px 4px; border-bottom: 1px solid transparent; }
 #status-select { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; -webkit-appearance: none; appearance: none; }
 .custom-dropdown:hover #selected-text { background-color: #f0f0f0; border-radius: 3px; }
+
+/* Page 2 (Back) Specific Styling */
+.ctf-birth-back, .ctf-birth-back * { font-size: 10px !important; }
+.ctf-birth-back h4 { font-size: 12px !important; }
+.ctf-birth-back h6 { font-size: 10px !important; }
+.ctf-birth-back input,
+.ctf-birth-back select,
+.ctf-birth-back textarea,
+.ctf-birth-back label,
+.ctf-birth-back span,
+.ctf-birth-back option { font-size: 10px !important; }
+
+.ctf-birth-back .affidavit-title {
+    font-size: 16px !important;
+    font-weight: bold;
+}
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#selected-text {
+    opacity: 0.8;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: black;
+    padding: 2px 4px;
+}
+
+#status-select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.custom-dropdown:hover #selected-text {
+    background-color: #f0f0f0;
+    border-radius: 3px;
+}
