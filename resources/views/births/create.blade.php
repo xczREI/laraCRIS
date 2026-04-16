@@ -4,6 +4,17 @@
     @vite('resources/css/birth-form.css')
 @endpush
 
+@section('header_button')
+    <a href="{{ route('births.index') }}" class="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition group">
+        <div class="bg-gray-200 group-hover:bg-blue-100 p-2 rounded-full transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+        </div>
+        <span class="font-bold text-lg uppercase tracking-tight">Return to Registry</span>
+    </a>
+@endsection
+
 @section('content')
 <div class="w-full py-6">
     <div class="mb-4 flex gap-2 max-w-[960px] mx-auto">
@@ -240,311 +251,215 @@
 
             </div>
 
-            <div id="page2" class="hidden">
-                <div class="ctf-birth-back pt-3" style="width:960px;margin: auto;">
-                    <div class="form" style="padding:0 15px 0 15px;">
-                        <div class="row">
-                            <div class="col" style="border: 2px solid green;">
-                                <h6 style="padding-top:10px; line-height: 1.2;">
-                                    <center><span class="affidavit-title">AFFIDAVIT OF ACKNOWLEDGEMENT/ADMISSION OF PATERNITY</span></center>
-                                    <div style="text-align: center; margin-top: 5px;">
-                                        <span>(For births on or after 3 August 1988)</span>
-                                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                                        <span>(For births on or after 3 August 1988)</span>
-                                    </div>
-                                </h6>
-                                <h6 style="padding-top:10px;">&emsp;&emsp;&emsp;&emsp;I/We,
-                                <div class="custom-control custom-checkbox custom-control-inline" style="padding:0; width:42%; margin-right:0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="father_name" name="father_name" onkeypress="return isTextKey(event)">
-                                </div>
-                                and
-                                <div class="custom-control custom-checkbox custom-control-inline" style="padding: 0; width: 42%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="mother_name" name="mother_name" onkeypress="return isTextKey(event)">
-                                </div>
-                                ,<br> of legal age, am/are the natural mother and/or father of
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 53%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center text-center" id="child_name" name="child_name" onkeypress="return isTextKey(event)">
-                                </div>
-                                , who was born on
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding:0; width:24%; margin-right:0;">
-                                    <input type="text" class="form-control form-control-sm text-center text-center" id="birth_date" name="birth_date">
-                                </div>
-                                at
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding:0; width:45%; margin-right:0;">
-                                    <input type="text" class="form-control form-control-sm text-center text-center" id="birth_place" name="birth_place">
-                                </div>
-                                .
-                                </h6><br>
-                                <h6 style="letter-spacing: 0.5px;">&emsp;&emsp;&emsp;&emsp;I am / We are executing this affidavit to attest to the truthfulness of the foregoing statements and for purposes of acknowledging my/our child.</h6><br>
-                                <div class="row">
-                                    <div class="col-6" align="center">
-                                        <input type="text" class="form-control form-control-sm text-center" style="background-color:white; border-top:none;border-left:none; border-right:none; border-color:green; border-radius:0; text-align:center;" id="father_sign" name="father_sign" onkeypress="return isTextKey(event)">
-                                        <h6>(Signature Over Printed Name of Father)</h6>
-                                    </div>
-                                    <div class="col-6" align="center">
-                                        <input type="text" class="form-control form-control-sm text-center" style="background-color:white; border-top:none;border-left:none; border-right:none; border-color:green; border-radius:0; text-align:center;" id="mother_sign" name="mother_sign" onkeypress="return isTextKey(event)">
-                                        <h6>(Signature Over Printed Name of Mother)</h6>
-                                    </div>
-                                </div><br>
-                                <h6>&emsp;&emsp;&emsp;&emsp;<span style="font-weight: bold;">SUBSCRIBED AND SWORN</span> to before me this
-                                    <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding:0; width:7%; margin-right:0;">
-                                        <input type="text" class="form-control form-control-sm text-center" name="ack_sworn_day" id="ack_sworn_day">
-                                    </div>
-                                    day of
-                                    <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding:0; width:20%; margin-right:0;">
+            <div id="page2" class="hidden font-sans text-gray-800">
+                <div class="max-w-[960px] mx-auto bg-white shadow-sm mb-8">
 
-                                        <input type="text" class="form-control form-control-sm text-center" name="ack_sworn_month" id="ack_sworn_month" onkeypress="return isTextKey(event)">
-                                    </div>
-                                    ,
-                                    <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding:0; width:8%; margin-right:0;">
-
-                                        <input type="text" class="form-control form-control-sm text-center" maxlength="4" name="ack_sworn_year" id="ack_sworn_year" onkeypress="return isNumberKey(event)">
-                                    </div>
-                                    by
-                                    <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding:0; width:30%; margin-right:0;">
-                                        <input type="text" class="form-control form-control-sm text-center" id="ack_father_sworn" name="ack_sworn_father" onkeypress="return isTextKey(event)">
-                                    </div>
-                                    and
-                                    <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding:0; width:30%; margin-right:0;">
-                                        <input type="text" class="form-control form-control-sm text-center" id="ack_mother_sworn" name="ack_sworn_mother" onkeypress="return isTextKey(event)">
-                                    </div>
-                                , who exhibited to me
-                                <input type="radio" id="gender1" name="birth_gender" value="his" hidden>
-                                <label id="gender1lbl" for="gender1">his</label>/
-                                <input type="radio" id="gender2" name="birth_gender" value="her" hidden>
-                                <label id="gender2lbl" for="gender2">her</label>
-                                CTC/valid ID
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 30%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" name="ack_ctc" id="ack_ctc">
-                                </div>
-                                issued on
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 25%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" name="ack_issued_on" id="ack_issued_on">
-                                </div>
-                                at
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 25%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" name="ack_issued_at" id="ack_issued_at" onkeypress="return isTextKey(event)">
-                                </div>
-                                .
-                                </h6>
-                                <br><br>
-                                <div class="row">
-                                    <div class="col-6" align="center">
-                                        <input type="text" class="form-control form-control-sm text-center" style="background-color: white;border-top:none;border-left:none;border-right:none;border-color: green;border-radius: 0;" name="ack_officer_sign" disabled>
-                                        <h6>Signature of the Administering Officer</h6>
-
-                                        <input type="text" class="form-control form-control-sm text-center" id="ack_sworn_name" name="ack_sworn_name" onkeypress="return isTextKey(event)">
-                                        <h6>Name in Print</h6>
-                                    </div>
-                                    <div class="col-6" align="center">
-                                        <input type="text" class="form-control form-control-sm text-center" id="ack_sworn_position" name="ack_sworn_position" onkeypress="return isTextKey(event)">
-                                        <h6>Position/Title/Designation</h6>
-                                        <input type="text" class="form-control form-control-sm text-center" id="ack_sworn_address" name="ack_sworn_address" onkeypress="return isTextKey(event)">
-                                        <h6>Address</h6>
-                                    </div>
-                                </div>
+                    <div class="border-2 border-green-700 p-8">
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold tracking-wide text-green-900">AFFIDAVIT OF ACKNOWLEDGEMENT/ADMISSION OF PATERNITY</h3>
+                            <div class="flex justify-center gap-16 text-xs mt-2 text-gray-600 font-medium">
+                                <span>(For births on or after 3 August 1988)</span>
+                                <span>(For births on or after 3 August 1988)</span>
                             </div>
-                        </div><div class="row">
-                            <div class="col" style="border: 2px solid green; border-top: none;">
-                                <h6 style="padding-top:10px; line-height: 1.2;" align="center">
-                                    <span class="affidavit-title"><center>AFFIDAVIT FOR DELAYED REGISTRATION OF BIRTH</center></span>
-                                    <span>(To be accomplished by the hospital/clinic administrator, father, mother, or guardian or the person himself if 18 years old or above.)</span>
-                                </h6>
-                                <h6 style="padding-top:10px;">&emsp;&emsp;&emsp;&emsp;I,
-                                <div class="custom-control custom-checkbox custom-control-inline" style="padding: 0; width: 50%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="late_name" name="late_name" onkeypress="return isTextKey(event)">
-                                </div>
-                                , of legal age, single/married/divorced/widow/widower, with residence and postal address at
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 76%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="late_address" name="late_address" onkeypress="return isTextKey(event)">
-                                </div>
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 20%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" style="background-color: white;border-top:none;border-left:none;border-right:none;border-color: green;border-radius: 0;" disabled>
-                                </div>
-                                <span style="letter-spacing:0.5px;">after having been duly sworn in accordance with law, do hereby depose and say:</span>
-                                </h6>
-                                <h6>&emsp;&emsp;&emsp;&emsp;1.&emsp;That I am the applicant for the delayed registration of:<br>
-                                &emsp;&emsp;&emsp;&emsp;&emsp;
-                                <div class="custom-control custom-checkbox custom-control-inline" style="margin-right: 0;">
-                                    <input type="checkbox" class="custom-control-input text-center" id="my_birth" name="late_birth_type" value="my birth">
-                                    <label class="custom-control-label" for="my_birth">&nbsp;my birth in</label>
-                                </div>
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0;width: 38%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="bplace1" name="late_birth_in" onkeypress="return isTextKey(event)">
-                                </div>
-                                on
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0;width: 38%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="bday1" name="late_birth_on" >
-                                </div>
-                                &emsp;&emsp;&emsp;&emsp;&emsp;
-                                <div class="custom-control custom-checkbox custom-control-inline" style="margin-right: 0;">
-                                    <input type="checkbox" class="custom-control-input text-center" id="the_birth" name="late_birth_type2" value="the birth">
-                                    <label class="custom-control-label" for="the_birth">&nbsp;the birth of</label>
-                                </div>
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0;width: 32%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="childlatename" name="late_birth_of" onkeypress="return isTextKey(event)">
-                                </div>
-                                who was born in
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0;width: 34%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="bplace2" name="late_birth_in2" onkeypress="return isTextKey(event)">
-                                </div>
-                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0;width: 28%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" style="background-color: white;border-top:none;border-left:none;border-right:none;border-color: green;border-radius: 0;" disabled>
-                                </div>
-                                on
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0;width: 34%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="bday2" name="late_birth_on2">
-                                </div>
-                                .
-                                </h6>
-                                <h6>&emsp;&emsp;&emsp;&emsp;2.&emsp;That I/he/she was attended at birth by
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 50%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="attend_birth_by" name="attend_birth_by">
-                                </div>
-                                who resides at
-                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 78%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm" id="who_resides_at" name="who_resides_at" onkeypress="return isTextKey(event)">
-                                </div>
-                                .
-                                </h6>
-                                <h6>&emsp;&emsp;&emsp;&emsp;3.&emsp;That I/he/she is a citizen of
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 50%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="late_citizen" name="late_citizen">
-                                </div>
-                                .
-                                </h6>
-                                <h6>&emsp;&emsp;&emsp;&emsp;4.&emsp;That my/his/her parents were&emsp;
-                                <div class="custom-control custom-checkbox custom-control-inline" style="margin-right: 0;">
-                                    <input type="checkbox" class="custom-control-input text-center" id="married" name="married_type" value="married">
-                                    <label class="custom-control-label" for="married">&nbsp;married on</label>
-                                </div>
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 30%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="married_txt1" name="married_on" >
-                                </div>
-                                at
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 35%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center"  id="married_txt2" name="married_at" onkeypress="return isTextKey(event)">
-                                </div>
+                        </div>
+
+                        <div class="text-[13px] leading-[2.8rem] text-justify">
+                            <span class="ml-12">I/We,</span>
+                            <input type="text" id="father_name" name="father_name" class="inline-blank w-64 uppercase px-2" onkeypress="return isTextKey(event)">
+                            <span>and</span>
+                            <input type="text" id="mother_name" name="mother_name" class="inline-blank w-64 uppercase px-2" onkeypress="return isTextKey(event)">
+                            <span>, of legal age, am/are the natural mother and/or father of</span>
+                            <input type="text" id="child_name" name="child_name" class="inline-blank w-full uppercase px-2" onkeypress="return isTextKey(event)">
+                            <span>, who was born on</span>
+                            <input type="text" id="birth_date" name="birth_date" class="inline-blank w-48 uppercase px-2">
+                            <span>at</span>
+                            <input type="text" id="birth_place" name="birth_place" class="inline-blank w-64 flex-1 uppercase px-2">.
+                            <br>
+                            <span class="ml-12 mt-2 inline-block">I am / We are executing this affidavit to attest to the truthfulness of the foregoing statements and for purposes of acknowledging my/our child.</span>
+                        </div>
+
+                        <div class="flex justify-around mt-10">
+                            <div class="text-center w-72">
+                                <input type="text" id="father_sign" name="father_sign" class="inline-blank w-full uppercase" onkeypress="return isTextKey(event)">
+                                <p class="text-xs mt-1 text-gray-600">(Signature Over Printed Name of Father)</p>
+                            </div>
+                            <div class="text-center w-72">
+                                <input type="text" id="mother_sign" name="mother_sign" class="inline-blank w-full uppercase" onkeypress="return isTextKey(event)">
+                                <p class="text-xs mt-1 text-gray-600">(Signature Over Printed Name of Mother)</p>
+                            </div>
+                        </div>
+
+                        <div class="text-[13px] leading-[2.8rem] mt-8">
+                            <span class="ml-12 font-bold tracking-wide">SUBSCRIBED AND SWORN</span> to before me this
+                            <input type="text" name="ack_sworn_day" id="ack_sworn_day" class="inline-blank w-16"> day of
+                            <input type="text" name="ack_sworn_month" id="ack_sworn_month" class="inline-blank w-32 uppercase" onkeypress="return isTextKey(event)">,
+                            <input type="text" name="ack_sworn_year" id="ack_sworn_year" class="inline-blank w-16" maxlength="4" onkeypress="return isNumberKey(event)">
+                            by <input type="text" name="ack_sworn_father" id="ack_father_sworn" class="inline-blank w-48 uppercase" onkeypress="return isTextKey(event)">
+                            and <input type="text" name="ack_sworn_mother" id="ack_mother_sworn" class="inline-blank w-48 uppercase" onkeypress="return isTextKey(event)">,
+                            who exhibited to me
+                            <div class="inline-flex items-center gap-3 mx-2 bg-gray-50 px-3 rounded border border-gray-200 h-8">
+                                <label class="cursor-pointer flex items-center gap-1"><input type="radio" name="birth_gender" value="his" class="text-green-600 focus:ring-green-500"> his</label>
+                                <label class="cursor-pointer flex items-center gap-1"><input type="radio" name="birth_gender" value="her" class="text-green-600 focus:ring-green-500"> her</label>
+                            </div>
+                            CTC/valid ID <input type="text" name="ack_ctc" id="ack_ctc" class="inline-blank w-32 uppercase">
+                            issued on <input type="text" name="ack_issued_on" id="ack_issued_on" class="inline-blank w-32 uppercase">
+                            at <input type="text" name="ack_issued_at" id="ack_issued_at" class="inline-blank w-48 uppercase" onkeypress="return isTextKey(event)">.
+                        </div>
+
+                        <div class="flex justify-around mt-10 pb-4">
+                            <div class="text-center w-72 flex flex-col items-center">
+                                <div class="border-b border-green-700 w-full h-4 mb-2"></div>
+                                <p class="text-xs mb-5 text-gray-600">Signature of the Administering Officer</p>
+
+                                <input type="text" id="ack_sworn_name" name="ack_sworn_name" class="inline-blank w-full uppercase" onkeypress="return isTextKey(event)">
+                                <p class="text-xs mt-1 text-gray-600">Name in Print</p>
+                            </div>
+                            <div class="text-center w-72 flex flex-col items-center">
+                                <input type="text" id="ack_sworn_position" name="ack_sworn_position" class="inline-blank w-full uppercase" value="MUNICIPAL CIVIL REGISTRAR" onkeypress="return isTextKey(event)">
+                                <p class="text-xs mt-1 mb-4 text-gray-600">Position/Title/Designation</p>
+
+                                <input type="text" id="ack_sworn_address" name="ack_sworn_address" class="inline-blank w-full uppercase" value="GERONA, TARLAC" onkeypress="return isTextKey(event)">
+                                <p class="text-xs mt-1 text-gray-600">Address</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-2 border-t-0 border-green-700 p-8">
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold tracking-wide text-green-900">AFFIDAVIT FOR DELAYED REGISTRATION OF BIRTH</h3>
+                            <p class="text-xs mt-2 text-gray-600 italic">(To be accomplished by the hospital/clinic administrator, father, mother, or guardian or the person himself if 18 years old or above.)</p>
+                        </div>
+
+                        <div class="text-[13px] leading-[2.8rem] text-justify">
+                            <span class="ml-12">I,</span>
+                            <input type="text" id="late_name" name="late_name" class="inline-blank w-64 uppercase px-2" onkeypress="return isTextKey(event)">
+                            <span>, of legal age, single/married/divorced/widow/widower, with residence and postal address at</span>
+                            <input type="text" id="late_address" name="late_address" class="inline-blank w-full uppercase px-2 mt-2" onkeypress="return isTextKey(event)">
+                            <span class="ml-12 mt-2 inline-block">after having been duly sworn in accordance with law, do hereby depose and say:</span>
+                        </div>
+
+                        <div class="text-[13px] leading-[2.8rem] mt-6 space-y-2">
+                            <p class="ml-8 font-semibold">1. That I am the applicant for the delayed registration of:</p>
+
+                            <div class="ml-16 flex items-center flex-wrap gap-2">
+                                <label class="flex items-center gap-2 cursor-pointer font-medium hover:text-green-700 transition">
+                                    <input type="checkbox" id="my_birth" name="late_birth_type" value="my birth" class="rounded text-green-600 focus:ring-green-500 w-4 h-4">
+                                    my birth in
+                                </label>
+                                <input type="text" id="bplace1" name="late_birth_in" class="inline-blank w-48 uppercase" onkeypress="return isTextKey(event)">
+                                <span>on</span>
+                                <input type="text" id="bday1" name="late_birth_on" class="inline-blank w-48 uppercase">
+                            </div>
+
+                            <div class="ml-16 flex items-center flex-wrap gap-2">
+                                <label class="flex items-center gap-2 cursor-pointer font-medium hover:text-green-700 transition">
+                                    <input type="checkbox" id="the_birth" name="late_birth_type2" value="the birth" class="rounded text-green-600 focus:ring-green-500 w-4 h-4">
+                                    the birth of
+                                </label>
+                                <input type="text" id="childlatename" name="late_birth_of" class="inline-blank w-64 uppercase" onkeypress="return isTextKey(event)">
+                                <span>who was born in</span>
+                                <input type="text" id="bplace2" name="late_birth_in2" class="inline-blank w-48 uppercase" onkeypress="return isTextKey(event)">
+                                <span>on</span>
+                                <input type="text" id="bday2" name="late_birth_on2" class="inline-blank w-48 uppercase">.
+                            </div>
+
+                            <div class="ml-8">
+                                <span>2. That I/he/she was attended at birth by</span>
+                                <input type="text" id="attend_birth_by" name="attend_birth_by" class="inline-blank w-64 uppercase">
+                                <span>who resides at</span>
+                                <input type="text" id="who_resides_at" name="who_resides_at" class="inline-blank w-[90%] ml-[28px] mt-2 uppercase" onkeypress="return isTextKey(event)">.
+                            </div>
+
+                            <p class="ml-8">
+                                3. That I/he/she is a citizen of
+                                <input type="text" id="late_citizen" name="late_citizen" class="inline-blank w-48 uppercase" value="PHILIPPINES">.
+                            </p>
+
+                            <div class="ml-8">
+                                <span class="mr-2">4. That my/his/her parents were</span>
+                                <label class="inline-flex items-center gap-2 cursor-pointer mr-2 hover:text-green-700 transition">
+                                    <input type="checkbox" id="married" name="married_type" value="married" class="rounded text-green-600 focus:ring-green-500 w-4 h-4">
+                                    married on
+                                </label>
+                                <input type="text" id="married_txt1" name="married_on" class="inline-blank w-32 uppercase">
+                                <span>at</span>
+                                <input type="text" id="married_txt2" name="married_at" class="inline-blank w-48 uppercase" onkeypress="return isTextKey(event)">
                                 <br>
-                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
-                                <div class="custom-control custom-checkbox custom-control-inline" style="margin-right: 0;">
-                                    <input type="checkbox" class="custom-control-input text-center" id="not_married" name="married_type2" value="not married">
-                                    <label class="custom-control-label" for="not_married">&nbsp;not married but I/he/she  <div class="custom-dropdown">
-                                    <span id="selected-text">was acknowledged</span>
-                                     <select id="status-select">
-                            <option value="acknowledged">was acknowledged</option>
-                                 <option value="not_acknowledged"> not acknowledged</option>
-                    </select>
-                                </div>by my/his/her</label>
-                                </div><br>
-                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
-                                father whose name is
-                                <div class="custom-control custom-checkbox custom-control-inline" style="padding: 0; width: 45%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="not_married_txt" name="not_married_name" onkeypress="return isTextKey(event)">
-                                </div>
-                                .
-                                </h6>
-                                <h6>&emsp;&emsp;&emsp;&emsp;5.&emsp;That the reason for the delay in registering my/his/her birth was
-                                <div class="custom-control custom-checkbox custom-control-inline" style="padding: 0; width: 47%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" name="late_reason_1" >
-                                </div>
-                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 78%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" name="late_reason_2" value="{{ old('late_reason_2') }}">
-                                </div>
-                                .
-                                </h6>
-                                <h6>&emsp;&emsp;&emsp;&emsp;6.&emsp;(For the applicant only)&emsp;That I am married to
-                                <div class="custom-control custom-checkbox custom-control-inline" style="padding: 0; width: 47%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" name="applicant_only" onkeypress="return isTextKey(event)">
-                                </div>
-                                .
-                                </h6>
-                                <h6>&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;(If the applicant is other than the document owner)&emsp;That I am the
-                                <div class="custom-control custom-checkbox custom-control-inline" style="padding: 0; width: 30%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="applicant_relation" name="applicant_than_owner" onkeypress="return isTextKey(event)">
-                                </div>
-                                of the said person.
-                                </h6>
-                                <h6>&emsp;&emsp;&emsp;&emsp;7.&emsp;That I am executing this affidavit to attest to the truthfulness of the foregoing statements for all legal intents and purposes.</h6><br>
-                                <h6>&emsp;&emsp;&emsp;&emsp;In truth whereof, I have affixed my signature below this
-                                <div class="custom-control custom-checkbox custom-control-inline" style="padding: 0; width: 8%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="sign_day" name="sign_day">
-                                </div>
-                                day of
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 18%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="sign_month" name="sign_month" onkeypress="return isTextKey(event)">
-                                </div>
-                                ,
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 8%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" maxlength="4" id="sign_year" name="sign_year" onkeypress="return isNumberKey(event)">
-                                </div>
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 25%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" style="background-color: white;border-top:none;border-left:none;border-right:none;border-color: green;border-radius: 0;" disabled>
-                                </div>
-                                at
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 30%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="sign_at" name="sign_at" onkeypress="return isTextKey(event)">
-                                </div>
-                                , Philippines.
-                                </h6>
-                                <div class="row">
-                                    <div class="col-7" align="center"></div>
-                                    <div class="col-5" align="center">
-                                        <input type="text" class="form-control form-control-sm text-center" id="affiant_name" name="affiant_name" onkeypress="return isTextKey(event)">
-                                        <h6>(Signature Over Printed Name of Affiant)</h6>
-                                    </div>
-                                </div><br>
-                                <h6>&emsp;&emsp;&emsp;&emsp;<span style="font-weight: bold;">SUBSCRIBED AND SWORN</span> to before me this
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 7%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="sworn_day" name="late_sworn_day">
-                                </div>
-                                day of
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 18%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="sworn_month" name="late_sworn_month" onkeypress="return isTextKey(event)">
-                                </div>
-                                ,
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 8%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" maxlength="4" id="sworn_year" name="late_sworn_year" onkeypress="return isNumberKey(event)">
-                                </div>
-                                at
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 25%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" id="sworn_at" name="late_sworn_at" onkeypress="return isTextKey(event)">
-                                </div>
-                                <span style="letter-spacing: 0.5px;">, Philippines, affiant who exhibited to me his/her CTC/valid ID</span>
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 20%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" name="late_ctc" id="late_ctc">
-                                </div>
-                                issued on
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 25%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" name="late_issued_on" id="late_issued_on">
-                                </div>
-                                at
-                                <div class="custom-control custom-checkbox custom-control-inline mt-1" style="padding: 0; width: 25%;margin-right: 0;">
-                                    <input type="text" class="form-control form-control-sm text-center" name="late_issued_at" id="late_issued_at" onkeypress="return isTextKey(event)">
-                                </div>
-
-                                </h6><br><br>
-                                <div class="row">
-                                    <div class="col-6" align="center">
-                                        <input type="text" class="form-control form-control-sm text-center" style="background-color: white;border-top:none;border-left:none;border-right:none;border-color: green;border-radius: 0;" name="late_officer_sign" disabled>
-                                        <h6>Signature of the Administering Officer</h6>
-                                        <input type="text" class="form-control form-control-sm text-center" id="late_sworn_name" name="late_sworn_name" onkeypress="return isTextKey(event)">
-                                        <h6>Name in Print</h6>
-                                    </div>
-                                    <div class="col-6" align="center">
-                                        <input type="text" class="form-control form-control-sm text-center" id="late_sworn_position" name="late_sworn_position" onkeypress="return isTextKey(event)">
-                                        <h6>Position/Title/Designation</h6>
-                                        <input type="text" class="form-control form-control-sm text-center" id="late_sworn_address" name="late_sworn_address" onkeypress="return isTextKey(event)">
-                                        <h6>Address</h6>
-                                    </div>
+                                <div class="ml-5 mt-2 flex items-center flex-wrap gap-2">
+                                    <label class="inline-flex items-center gap-2 cursor-pointer hover:text-green-700 transition">
+                                        <input type="checkbox" id="not_married" name="married_type2" value="not married" class="rounded text-green-600 focus:ring-green-500 w-4 h-4">
+                                        not married but I/he/she was acknowledged by my/his/her father whose name is
+                                    </label>
+                                    <input type="text" id="not_married_txt" name="not_married_name" class="inline-blank w-64 uppercase" onkeypress="return isTextKey(event)">.
                                 </div>
                             </div>
-                        </div></div>
+
+                            <div class="ml-8">
+                                <span>5. That the reason for the delay in registering my/his/her birth was</span>
+                                <input type="text" name="late_reason_1" class="inline-blank w-64 uppercase">
+                                <input type="text" name="late_reason_2" class="inline-blank w-[90%] ml-[28px] mt-2 uppercase" value="{{ old('late_reason_2') }}">.
+                            </div>
+
+                            <p class="ml-8">
+                                6. (For the applicant only) That I am married to
+                                <input type="text" name="applicant_only" class="inline-blank w-64 uppercase" onkeypress="return isTextKey(event)">.
+                                <br>
+                                <span class="ml-5">(If the applicant is other than the document owner) That I am the</span>
+                                <input type="text" id="applicant_relation" name="applicant_than_owner" class="inline-blank w-48 uppercase" onkeypress="return isTextKey(event)">
+                                of the said person.
+                            </p>
+
+                            <p class="ml-8">7. That I am executing this affidavit to attest to the truthfulness of the foregoing statements for all legal intents and purposes.</p>
+
+                            <p class="ml-8 mt-4">
+                                In truth whereof, I have affixed my signature below this
+                                <input type="text" id="sign_day" name="sign_day" class="inline-blank w-16"> day of
+                                <input type="text" id="sign_month" name="sign_month" class="inline-blank w-32 uppercase" onkeypress="return isTextKey(event)">,
+                                <input type="text" id="sign_year" name="sign_year" class="inline-blank w-16" maxlength="4" onkeypress="return isNumberKey(event)">
+                                at <input type="text" id="sign_at" name="sign_at" class="inline-blank w-48 uppercase" onkeypress="return isTextKey(event)">, Philippines.
+                            </p>
+                        </div>
+
+                        <div class="flex justify-end mt-10 pr-12">
+                            <div class="text-center w-72">
+                                <input type="text" id="affiant_name" name="affiant_name" class="inline-blank w-full uppercase" onkeypress="return isTextKey(event)">
+                                <p class="text-xs mt-1 text-gray-600">(Signature Over Printed Name of Affiant)</p>
+                            </div>
+                        </div>
+
+                        <div class="text-[13px] leading-[2.8rem] mt-8">
+                            <span class="ml-12 font-bold tracking-wide">SUBSCRIBED AND SWORN</span> to before me this
+                            <input type="text" id="sworn_day" name="late_sworn_day" class="inline-blank w-16"> day of
+                            <input type="text" id="sworn_month" name="late_sworn_month" class="inline-blank w-32 uppercase" onkeypress="return isTextKey(event)">,
+                            <input type="text" id="sworn_year" name="late_sworn_year" class="inline-blank w-16" maxlength="4" onkeypress="return isNumberKey(event)">
+                            at <input type="text" id="sworn_at" name="late_sworn_at" class="inline-blank w-48 uppercase" onkeypress="return isTextKey(event)">, Philippines,
+                            affiant who exhibited to me his/her CTC/valid ID
+                            <input type="text" name="late_ctc" id="late_ctc" class="inline-blank w-32 uppercase">
+                            issued on <input type="text" name="late_issued_on" id="late_issued_on" class="inline-blank w-32 uppercase">
+                            at <input type="text" name="late_issued_at" id="late_issued_at" class="inline-blank w-48 uppercase" onkeypress="return isTextKey(event)">.
+                        </div>
+
+                        <div class="flex justify-around mt-10 pb-6">
+                            <div class="text-center w-72 flex flex-col items-center">
+                                <div class="border-b border-green-700 w-full h-4 mb-2"></div>
+                                <p class="text-xs mb-5 text-gray-600">Signature of the Administering Officer</p>
+
+                                <input type="text" id="late_sworn_name" name="late_sworn_name" class="inline-blank w-full uppercase" onkeypress="return isTextKey(event)">
+                                <p class="text-xs mt-1 text-gray-600">Name in Print</p>
+                            </div>
+                            <div class="text-center w-72 flex flex-col items-center">
+                                <input type="text" id="late_sworn_position" name="late_sworn_position" class="inline-blank w-full uppercase" value="MUNICIPAL CIVIL REGISTRAR" onkeypress="return isTextKey(event)">
+                                <p class="text-xs mt-1 mb-4 text-gray-600">Position/Title/Designation</p>
+
+                                <input type="text" id="late_sworn_address" name="late_sworn_address" class="inline-blank w-full uppercase" value="GERONA, TARLAC" onkeypress="return isTextKey(event)">
+                                <p class="text-xs mt-1 text-gray-600">Address</p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+
         </div>
 
         <div class="max-w-[960px] mx-auto">
@@ -575,7 +490,7 @@
 
     // Move to next input on Enter key
     document.addEventListener("DOMContentLoaded", function() {
-        let inputs = document.querySelectorAll(".form-control");
+        let inputs = document.querySelectorAll(".form-control, .border-b, .inline-blank");
 
         inputs.forEach((input, index) => {
             input.addEventListener("keydown", function(event) {
@@ -717,14 +632,5 @@
         }
         updateSuggestions();
     });
-
-    const selectElement = document.getElementById('status-select');
-    const textDisplay = document.getElementById('selected-text');
-    if(selectElement) {
-        selectElement.addEventListener('change', function() {
-            textDisplay.textContent = this.options[this.selectedIndex].text;
-        });
-    }
 </script>
 @endsection
-

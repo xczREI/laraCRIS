@@ -40,7 +40,14 @@
 
         <main class="flex-1 flex flex-col h-screen overflow-y-auto">
             <header class="bg-white shadow-sm py-4 px-8 flex justify-between items-center border-b border-gray-200">
-                <h2 class="text-xl font-semibold text-gray-700">@yield('header', 'Overview')</h2>
+                <div class="flex items-center">
+                    @hasSection('header_button')
+                        @yield('header_button')
+                    @else
+                        <h2 class="text-xl font-semibold text-gray-700">@yield('header', 'Overview')</h2>
+                    @endif {{-- Fixed: Changed from @endhasSection to @endif --}}
+                </div>
+
                 <div class="flex items-center text-sm font-medium text-gray-600">
                     <span>Logged in as: Super Admin</span>
                 </div>

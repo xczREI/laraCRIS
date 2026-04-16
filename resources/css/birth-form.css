@@ -1,8 +1,17 @@
-/* =======================================================
-   BULLETPROOF FORM 102 GRID SYSTEM
-   ======================================================= */
+@reference "./app.css";
 .form-102-wrapper { width: 960px; margin: 0 auto; font-family: Arial, sans-serif; color: #000; background: white; }
-
+/* =======================================================
+   CUSTOM INLINE INPUT (PAGE 2)
+   ======================================================= */
+.inline-blank {
+    @apply border-b border-green-700 bg-transparent text-center font-bold text-green-900 border-t-0 border-l-0 border-r-0 focus:outline-none focus:border-b-2 focus:border-green-500 transition-all;
+    padding: 0 4px !important;      /* Removes vertical padding, keeps slight horizontal padding */
+    min-height: 0 !important;       /* Nukes the default form plugin height */
+    height: auto !important;        /* Forces the box to only be as tall as the text */
+    line-height: 1.2 !important;    /* Keeps the text snug inside the box */
+    vertical-align: baseline !important; /* Aligns the text with the surrounding paragraph */
+    box-shadow: none !important;
+}
 /* Rigid Flex Grid */
 .f-row { display: flex; width: 100%; flex-wrap: wrap; }
 .c-1 { width: 8.333333%; flex-shrink: 0; }
